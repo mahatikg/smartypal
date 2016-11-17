@@ -40,7 +40,7 @@ def create_item_in_game(name):
     pass
 
 
-#GET /store/<string:name>/item
+#GET /game/<string:name>/item
 @app.route('/game/<string:name>/item')
 def get_item_in_game(name):
     pass
