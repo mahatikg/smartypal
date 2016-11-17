@@ -1,28 +1,38 @@
-from flask import Flask
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 games = [
     {
         gamename: 'anglegame',
-        score: []
+        scores: []
     }
     {
         gamename: 'circlegame'
-        score: []
+        scores: []
     }
 ]
 
-# POST /game data: {gamename: }
+# POST /game data: {gamename: } to add a new game to the data
 @app.route('/game', methods=['POST'])
 def create_game():
-    'should create game data?'
+    request_data = request.get_json()
+    new_Game = {
+        'name' : request_data['gamaname'],
+        scores: []
+    }
+    games.append(new_game)
+    return jsonify(new_game)
 
 
 
 # GET /game/<string: gamename>
-@app.route('/game/<string:name>') # the stringname situation is specfic to flask because it means that some name can be filled in
+@app.route('/game/<string:name>') # stringname specfic to flask:means some name can be filled in
 def get_game(name):
-    pass
+    for game in games:
+        if store['name'] ==  name:
+            return jsonify(game)
+        return jsonify({message : 'game not found'})
+
 
 
 
@@ -33,16 +43,27 @@ def get_games():
 
 
 
-# POST /game/<string: gamename>/item
-@app.route('/game/<string:name>/item', methods=['POST'])
+# POST /game/<string: gamename>/score to add a new scores to a game's scores
+@app.route('/game/<string:name>/score', methods=['POST'])
 def create_item_in_game(name):
-    pass
+    request_data = request.get_json()
+    for game in games:
+        if game['name'] == name:
+            new_score = {
+                attempt: request_data['attempt'],
+                score_num: request_data['score_num']
+
+            }
+            store['scores'].append(new_score)
 
 
 #GET /store/<string:name>/item
-@app.route('/game/<string:name>/item')
+@app.route('/game/<string:name>/score')
 def get_item_in_game(name):
-    pass
+    for game in games:
+        if game['name'] == name:
+                return jsonify({score: game['score']})
+        return jsonify({message : 'game's scores not found'})
 
 
 app.run(port=5000)
