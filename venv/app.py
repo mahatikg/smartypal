@@ -10,4 +10,9 @@ api = Api(app)
 class Game(Resource):
     def get(self, gamename):
         return { 'game' : gamename}
-        
+
+
+api.add_resource(Game, '/game/<string:gamename>')
+
+
+app.run(port=5000)
