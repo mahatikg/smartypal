@@ -1,21 +1,22 @@
-from flask import Flask
+from flask import Flask, jsonify
 
 app = Flask(__name__)
+
 games = [
     {
-        gamename: 'anglegame',
-        score: []
-    }
-    {
-        gamename: 'circlegame'
-        score: []
+        name: 'angle',
+
+        score: [],
+
+        students : []
+
     }
 ]
 
 # POST /game data: {gamename: }
 @app.route('/game', methods=['POST'])
 def create_game():
-    'should create game data?'
+    pass
 
 
 
@@ -27,9 +28,9 @@ def get_game(name):
 
 
 # GET /game (All)
-@app.route('/game/')
+@app.route('/game')
 def get_games():
-    pass
+    return jsonify({'games': games}) #converts the games into json. But we need the json to be an object so we are making our games array the value of a key. {games: games}
 
 
 
