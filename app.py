@@ -1,15 +1,14 @@
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
+
 games = [
     {
         gamename: 'anglegame',
         scores: []
     }
-    {
-        gamename: 'circlegame'
-        scores: []
-    }
+
+
 ]
 
 # POST /game data: {gamename: } to add a new game to the data
@@ -25,6 +24,7 @@ def create_game():
 
 
 
+
 # GET /game/<string: gamename>
 @app.route('/game/<string:name>') # stringname specfic to flask:means some name can be filled in
 def get_game(name):
@@ -37,9 +37,9 @@ def get_game(name):
 
 
 # GET /game (All)
-@app.route('/game/')
+@app.route('/game')
 def get_games():
-    pass
+    return jsonify({'games': games}) #converts the games into json. But we need the json to be an object so we are making our games array the value of a key. {games: games}
 
 
 
@@ -55,6 +55,7 @@ def create_item_in_game(name):
 
             }
             store['scores'].append(new_score)
+
 
 
 #GET /store/<string:name>/item
