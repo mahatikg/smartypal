@@ -55,7 +55,8 @@ def create_item_in_game(name):
 
             }
             store['scores'].append(new_score)
-
+            return jsonify(new_score)
+        return jsonify({'message': 'store not found'})
 
 
 #GET /store/<string:name>/item
