@@ -8,21 +8,22 @@ app.config["MONGO_STUDENTSDB"] = "student_db"
 mongo = PyMongo(app, config_prefix='MONGO')
 APP_URL = "http://127.0.0.1:5000"
 
-class Student(Resource):
+class Classroom(Resource):
+### MESSED AROUND WITH MY DOMAIN MODEL A FEW TIMES SO
+#A LOT OF THESE TITLES AND NAMES i HAVEN'T GOTTEN AROUND TO CHANGING 
 
-
-    def get(self, student_id=None ):
+    def getData(self, student_id=None ):
         data = []
 
-        if student_id:
-            studnet_info = mongo.db.student.find_one({"student_id": student_id}, {"_id": 0})
+        if class_id:
+            class_info = mongo.db.student.find_one({"student_id": student_id}, {"_id": 0})
             if studnet_info:
                 return jsonify({"status": "ok", "data": student_info})
             else:
                 return {"response": "no student found for {}".format(student_id)}
 
         elif name:
-            cursor = mongo.db.student.find({"name": name}, {"_id": 0}).limit(10)
+            cursor = mongo.db.student.find({"name": name},
             for student in cursor:
                 student['url'] = APP_URL + url_for('students') + "/" + student.get('student_id')
                 data.append(student)

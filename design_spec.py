@@ -3,7 +3,7 @@
 
 DOMAIN MODEL:
 
-var Classroom = new mongoose.Schema({name: 'string', students: 'array'})
+var Classroom = new mongoose.Schema({name: 'string', students: 'array', class_id: 'integer'})
 
 var Student = new mongoose.Schema(
             {student_id: 'integer',
@@ -14,7 +14,6 @@ var Student = new mongoose.Schema(
 
 var Game = new mongoose.Schema(
             {game_name : 'string',
-            students : [ array of students ]
             time : 'integer', # potentially >> {total: 45, time_taken: 32}
             problems_total : 'integer',
             problems_finished : 'integer',
@@ -45,12 +44,18 @@ data = { class_data:{
         'students' : [ {}, {},{} ]
 } }
 
-Associated Methods:
+####################################################
+
+ASSOCIATED METHODS
 
 Classroom.methods.addStudentstoArray = function addStudentstoArray () {
-  return add Student documents with correct_ids into to the students array
+    # find students by class_id
+        # if Classroom.id == Student.class_id
+        #Classroom["students"] << Student
 }
 
-Game.methods.didStudentplay = function didStudentplay (){
-    return push into array the student document of the student who played the game
+Game.methods.gamePlayed = function gamePlayed(){
+    # once a student plays a game their data is saved in the DB
+    # if game.student_id == student_id
+        #Student["gamesplayed"] << Game
 }
