@@ -1,6 +1,4 @@
 #OVERALL DESIGNSPECS  AND DESIGN NOTES
-
-
 DOMAIN MODEL:
 
 var Classroom = new mongoose.Schema({name: 'string', students: 'array', class_id: 'integer'})
@@ -59,3 +57,10 @@ Game.methods.gamePlayed = function gamePlayed(){
     # if game.student_id == student_id
         #Student["gamesplayed"] << Game
 }
+
+NEXT STEPS:
+# reorganize routes and class methods in app.py to reflect restructured models
+# build out REST actions/abilities for the Classroom and Students
+# write tests for REST actions - double check expected outputs with Lakshmi
+# build out client side application with splash page to 'get data'
+# views for client-side: teacher should be able see classroom stats, all students stats, all stats from the game
