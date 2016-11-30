@@ -20,6 +20,8 @@ games = [
 
 ]
 
+# build out flask api
+
 # GET /game --- TO SEE ALL THE GAMES
 @app.route('/games')
 def get_games():
