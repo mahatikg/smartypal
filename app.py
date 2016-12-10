@@ -19,7 +19,14 @@ games = [
     }
 
 ]
+<<<<<<< HEAD
 ## wouldn't need the above later
+=======
+## the above wouldn't have this
+
+# build out flask api
+
+>>>>>>> 2abdb42e27983f08d7433c33dd11eccf6a72e911
 # GET /game --- TO SEE ALL THE GAMES
 @app.route('/games')
 def get_games():
