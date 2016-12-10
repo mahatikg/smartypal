@@ -19,7 +19,7 @@ games = [
     }
 
 ]
-
+## wouldn't need the above later
 # GET /game --- TO SEE ALL THE GAMES
 @app.route('/games')
 def get_games():
