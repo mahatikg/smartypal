@@ -19,6 +19,7 @@ games = [
     }
 
 ]
+## the above wouldn't have this
 
 # GET /game --- TO SEE ALL THE GAMES
 @app.route('/games')
