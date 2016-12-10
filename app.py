@@ -19,6 +19,7 @@ games = [
     }
 
 ]
+## the above wouldn't have this
 
 # build out flask api
 
