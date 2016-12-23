@@ -27,13 +27,13 @@ games = [
 # build out flask api
 
 
-# GET /game --- TO SEE ALL THE GAMES
+# GET /game --- TO SEE ALL THE GAMES  like /cats
 @app.route('/games')
 def get_games():
     return jsonify({'games': games}) #converts the games into json. But we need the json to be an object so we are making our games array the value of a key. {games: games}
 
 
-# GET /game/<string: gamename> --- SHOW A SPECIFIC GAME
+# GET /game/<string: gamename> --- SHOW A SPECIFIC GAME 
 @app.route('/games/<string:gamename>') # stringname specfic to flask:means some name can be filled in
 def get_game(gamename):
     for game in games:
@@ -81,3 +81,4 @@ def create_item_in_game(gamename):
 
 
 app.run(port=5000)
+# need to tell the entire app to run and tell it which port
