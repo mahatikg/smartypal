@@ -27,13 +27,13 @@ games = [
 # build out flask api
 
 
-# GET /game --- TO SEE ALL THE GAMES
+# GET /game --- TO SEE ALL THE GAMES  /cats
 @app.route('/games')
 def get_games():
     return jsonify({'games': games}) #converts the games into json. But we need the json to be an object so we are making our games array the value of a key. {games: games}
 
 
-# GET /game/<string: gamename> --- SHOW A SPECIFIC GAME
+# GET /game/<string: gamename> --- SHOW A SPECIFIC GAME  /shadow
 @app.route('/games/<string:gamename>') # stringname specfic to flask:means some name can be filled in
 def get_game(gamename):
     for game in games:
@@ -42,7 +42,7 @@ def get_game(gamename):
         return jsonify({message : 'game not found'})
 
 
-#GET /game/<string:gamename>/scores --- SHOW SCORES FROM A GAME
+#GET /game/<string:gamename>/scores --- SHOW SCORES FROM A GAME /shadow/breed
 @app.route('/games/<string:gamename>/scores')
 def get_item_in_game(gamename):
     for game in games:
