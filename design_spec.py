@@ -1,6 +1,5 @@
 #OVERALL DESIGNSPECS  AND DESIGN NOTES
 DOMAIN MODEL:
-
 var Classroom = new mongoose.Schema({name: 'string', students: 'array', class_id: 'integer'})
 
 var Student = new mongoose.Schema(
@@ -44,7 +43,7 @@ data = { class_data:{
 
 ####################################################
 
-ASSOCIATED METHODS
+ASSOCIATED METHODS // WRITE SERIALIZER METHODS IN VANILLA JS
 
 Classroom.methods.addStudentstoArray = function addStudentstoArray () {
     # find students by class_id
