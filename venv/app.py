@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, url_for, redirect, request
 from flask_pymongo import PyMongo
 from flask_restful import Api, Resource
+# need to import this 
 ## each game is a resource, a thing that our api can return
 
 app = Flask(__name__)
