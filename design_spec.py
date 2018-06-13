@@ -1,4 +1,6 @@
 #OVERALL DESIGNSPECS  AND DESIGN NOTES
+#testing new ssh key works
+
 DOMAIN MODEL:
 var Classroom = new mongoose.Schema({name: 'string', students: 'array', class_id: 'integer'})
 
